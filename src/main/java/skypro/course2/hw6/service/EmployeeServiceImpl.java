@@ -10,47 +10,47 @@ import java.util.*;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    private final Map<String, Employee> employees;
+    private final Map<String, Employee> EMPLOYEES;
     private final int MAX_COUNT_OF_EMPLOYEES = 3;
 
     public EmployeeServiceImpl() {
-        this.employees = new HashMap<>();
+        this.EMPLOYEES = new HashMap<>();
     }
 
     @Override
     public Employee add(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
         String key = firstName + " " + lastName;
-        if (employees.size() >= MAX_COUNT_OF_EMPLOYEES) {
+        if (EMPLOYEES.size() >= MAX_COUNT_OF_EMPLOYEES) {
             throw new EmployeeStorageIsFullException("Нельзя добавить новго сотрудника. Список переполнен.");
         }
-        if (employees.containsKey(key)) {
+        if (EMPLOYEES.containsKey(key)) {
             throw new EmployeeAlreadyAddedException("Такой сотрудник уже существует");
         }
-        employees.put(key, employee);
+        EMPLOYEES.put(key, employee);
         return employee;
     }
 
     @Override
     public Employee remove(String firstName, String lastName) {
         String key = firstName + " " + lastName;
-        if (!employees.containsKey(key)) {
+        if (!EMPLOYEES.containsKey(key)) {
             throw new EmployeeNotFoundException("Сотрудник не найден");
         }
-        return employees.remove(key);
+        return EMPLOYEES.remove(key);
     }
 
     @Override
     public Employee find(String firstName, String lastName) {
         String key = firstName + " " + lastName;
-        if (!employees.containsKey(key)) {
+        if (!EMPLOYEES.containsKey(key)) {
             throw new EmployeeNotFoundException("Сотрудник не найден");
         }
-        return employees.get(key);
+        return EMPLOYEES.get(key);
     }
 
     @Override
     public Collection<Employee> showEmployeeList() {
-        return Collections.unmodifiableCollection(employees.values());
+        return Collections.unmodifiableCollection(EMPLOYEES.values());
     }
 }
