@@ -1,10 +1,11 @@
-package skypro.course2.hw6.service;
+package skypro.course2.hw6.service.impl;
 
 import org.springframework.stereotype.Service;
 import skypro.course2.hw6.exception.EmployeeAlreadyAddedException;
 import skypro.course2.hw6.exception.EmployeeNotFoundException;
 import skypro.course2.hw6.exception.EmployeeStorageIsFullException;
 import skypro.course2.hw6.model.Employee;
+import skypro.course2.hw6.service.EmployeeService;
 
 import java.util.*;
 
