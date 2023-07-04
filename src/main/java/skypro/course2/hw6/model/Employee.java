@@ -6,10 +6,15 @@ import java.util.Objects;
 public class Employee {
     private final String firstName;
     private final String lastName;
+    private Integer numOfDepartment;
+    private int salary;
 
-    public Employee(String firstName, String lastName) {
+
+    public Employee(Integer numOfDepartment, String firstName, String lastName, int salary) {
+        this.numOfDepartment = numOfDepartment;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.salary = salary;
     }
 
     public String getFirstName() {
@@ -20,12 +25,29 @@ public class Employee {
         return lastName;
     }
 
+    public Integer getNumOfDepartment() {
+        return numOfDepartment;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setNumOfDepartment(Integer numOfDepartment) {
+        if (numOfDepartment < 1 || numOfDepartment > 5) {
+            throw new IllegalArgumentException("Такого отдела не существует!");
+        }
+        this.numOfDepartment = numOfDepartment;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return "\nРаботник: " + firstName + " " + lastName + ". Зарплата: " + salary
+                + " руб. в месяц\n";
     }
 
     @Override
