@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface DepartmentService {
-    Optional<Employee> getEmployeeWithMaxSalaryOfDep(Integer departmentId);
+    Employee getEmployeeWithMaxSalaryOfDep(Integer departmentId);
 
-    Optional<Employee> getEmployeeWithMinSalaryOfDep(Integer departmentId);
+    Employee getEmployeeWithMinSalaryOfDep(Integer departmentId);
 
     Map<Integer, List<Employee>> getAllEmployeesList(Integer departmentId);
 }

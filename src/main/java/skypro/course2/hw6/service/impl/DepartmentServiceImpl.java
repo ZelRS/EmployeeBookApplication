@@ -1,6 +1,7 @@
 package skypro.course2.hw6.service.impl;
 
 import org.springframework.stereotype.Service;
+import skypro.course2.hw6.exception.EmployeeNotFoundException;
 import skypro.course2.hw6.model.Employee;
 import skypro.course2.hw6.service.DepartmentService;
 import skypro.course2.hw6.service.EmployeeService;
@@ -20,19 +21,21 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Optional<Employee> getEmployeeWithMaxSalaryOfDep(Integer departmentId) {
+    public Employee getEmployeeWithMaxSalaryOfDep(Integer departmentId) {
         return employeeService.showEmployeeList()
                 .stream()
                 .filter(e -> e.getNumOfDepartment().equals(departmentId))
-                .max(Comparator.comparingInt(Employee::getSalary));
+                .max(Comparator.comparingInt(Employee::getSalary))
+                .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @Override
-    public Optional<Employee> getEmployeeWithMinSalaryOfDep(Integer departmentId) {
+    public Employee getEmployeeWithMinSalaryOfDep(Integer departmentId) {
         return employeeService.showEmployeeList()
                 .stream()
                 .filter(e -> e.getNumOfDepartment().equals(departmentId))
-                .min(Comparator.comparingInt(Employee::getSalary));
+                .min(Comparator.comparingInt(Employee::getSalary))
+                .orElseThrow(() -> new EmployeeNotFoundException("Сотрудник не найден!"));
     }
 
     @Override

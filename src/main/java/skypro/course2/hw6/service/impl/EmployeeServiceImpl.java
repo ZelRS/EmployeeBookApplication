@@ -18,26 +18,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public EmployeeServiceImpl() {
         this.employees = new HashMap<>(Map.of(
-//                "Semen Semenov",
-//                new Employee(1, "Semen", "Semenov", 179369),
-//                "Ivan Ivanov",
-//                new Employee(4, "Ivan", "Ivanov", 197349),
-//                "Viktor Viktorov",
-//                new Employee(2, "Viktor", "Viktorov", 101976),
-//                "Matvey Matveev",
-//                new Employee(1, "Matvey", "Matveev", 179134),
-//                "Roman Romanov",
-//                new Employee(3, "Roman", "Romanov", 164791),
-//                "Egor Egorov",
-//                new Employee(3, "Egor", "Egorov", 132976),
-//                "Ahmed Ahmedov",
-//                new Employee(4, "Ahmed", "Ahmedov", 119764),
-//                "Stepan Stepanov",
-//                new Employee(2, "Stepan", "Stepanov", 106791),
-//                "Andrey Andreev",
-//                new Employee(5, "Andrey", "Andreev", 100999),
-//                "Kirill Kirillov",
-//                new Employee(5, "Kirill", "Kirillov", 111971)
+                "Semen Semenov",
+                new Employee(1, "Semen", "Semenov", 179369),
+                "Ivan Ivanov",
+                new Employee(4, "Ivan", "Ivanov", 197349),
+                "Viktor Viktorov",
+                new Employee(2, "Viktor", "Viktorov", 101976),
+                "Matvey Matveev",
+                new Employee(1, "Matvey", "Matveev", 179134),
+                "Roman Romanov",
+                new Employee(3, "Roman", "Romanov", 164791),
+                "Egor Egorov",
+                new Employee(3, "Egor", "Egorov", 132976),
+                "Ahmed Ahmedov",
+                new Employee(4, "Ahmed", "Ahmedov", 119764),
+                "Stepan Stepanov",
+                new Employee(2, "Stepan", "Stepanov", 106791),
+                "Andrey Andreev",
+                new Employee(5, "Andrey", "Andreev", 100999),
+                "Kirill Kirillov",
+                new Employee(5, "Kirill", "Kirillov", 111971)
                 ));
     }
 

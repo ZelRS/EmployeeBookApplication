@@ -9,7 +9,6 @@ import skypro.course2.hw6.service.DepartmentService;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/departments")
@@ -21,12 +20,12 @@ public class DepartmentController {
     }
 
     @GetMapping("/max-salary")
-    public Optional<Employee> getEmployeeWithMaxSalaryOfDep(@RequestParam Integer departmentId) {
+    public Employee getEmployeeWithMaxSalaryOfDep(@RequestParam Integer departmentId) {
         return departmentService.getEmployeeWithMaxSalaryOfDep(departmentId);
     }
 
     @GetMapping("/min-salary")
-    public Optional<Employee> getEmployeeWithMinSalaryOfDep(@RequestParam Integer departmentId) {
+    public Employee getEmployeeWithMinSalaryOfDep(@RequestParam Integer departmentId) {
         return departmentService.getEmployeeWithMinSalaryOfDep(departmentId);
     }
 

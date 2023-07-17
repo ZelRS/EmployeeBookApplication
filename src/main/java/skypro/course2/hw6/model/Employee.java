@@ -46,8 +46,12 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "\nРаботник: " + firstName + " " + lastName + ". Зарплата: " + salary
-                + " руб. в месяц\n";
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", numOfDepartment=" + numOfDepartment +
+                ", salary=" + salary +
+                '}';
     }
 
     @Override
@@ -55,11 +59,11 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return firstName.equals(employee.firstName) && lastName.equals(employee.lastName);
+        return salary == employee.salary && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(numOfDepartment, employee.numOfDepartment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName);
+        return Objects.hash(firstName, lastName, numOfDepartment, salary);
     }
 }
