@@ -3,6 +3,8 @@ package skypro.course2.hw6.model;
 
 import java.util.Objects;
 
+import static org.apache.commons.lang3.StringUtils.*;
+
 public class Employee {
     private final String firstName;
     private final String lastName;
@@ -12,8 +14,8 @@ public class Employee {
 
     public Employee(Integer numOfDepartment, String firstName, String lastName, int salary) {
         this.numOfDepartment = numOfDepartment;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = capitalize(firstName.toLowerCase());
+        this.lastName = capitalize(lastName.toLowerCase());
         this.salary = salary;
     }
 
