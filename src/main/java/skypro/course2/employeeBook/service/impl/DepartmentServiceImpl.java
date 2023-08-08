@@ -65,16 +65,11 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Integer getSumOfSalaryByDep(Integer numOfDepartment) {
         numOfDepValidation(numOfDepartment);
-        List<Integer> salariesByDep = employeeService.showEmployeeList()
+        return employeeService.showEmployeeList()
                 .stream().
                 filter(e -> e.getNumOfDepartment().equals(numOfDepartment))
-                .map(Employee::getSalary)
-                .collect(Collectors.toList());
-        int sum = 0;
-        for (Integer salary : salariesByDep) {
-            sum += salary;
-        }
-        return sum;
+                .mapToInt(Employee::getSalary)
+                .sum();
 
     }
 }
