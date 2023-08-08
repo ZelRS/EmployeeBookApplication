@@ -1,9 +1,10 @@
-package skypro.course2.hw6.model;
+package skypro.course2.employeeBook.model;
 
 
 import java.util.Objects;
 
-import static org.apache.commons.lang3.StringUtils.*;
+import static org.apache.commons.lang3.StringUtils.capitalize;
+import static skypro.course2.employeeBook.service.impl.EmployeeServiceImpl.numOfDepValidation;
 
 public class Employee {
     private final String firstName;
@@ -13,6 +14,7 @@ public class Employee {
 
 
     public Employee(Integer numOfDepartment, String firstName, String lastName, int salary) {
+        numOfDepValidation(numOfDepartment);
         this.numOfDepartment = numOfDepartment;
         this.firstName = capitalize(firstName.toLowerCase());
         this.lastName = capitalize(lastName.toLowerCase());
@@ -36,9 +38,7 @@ public class Employee {
     }
 
     public void setNumOfDepartment(Integer numOfDepartment) {
-        if (numOfDepartment < 1 || numOfDepartment > 5) {
-            throw new IllegalArgumentException("Такого отдела не существует!");
-        }
+        numOfDepValidation(numOfDepartment);
         this.numOfDepartment = numOfDepartment;
     }
 

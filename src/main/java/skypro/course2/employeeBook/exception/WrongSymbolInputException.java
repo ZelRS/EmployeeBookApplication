@@ -1,4 +1,4 @@
-package skypro.course2.hw6.exception;
+package skypro.course2.employeeBook.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
