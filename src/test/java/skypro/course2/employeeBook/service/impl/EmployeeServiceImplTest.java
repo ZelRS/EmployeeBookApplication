@@ -24,7 +24,7 @@ public class EmployeeServiceImplTest {
     // проверяет добавился ли сотрудник
     @Test
     public void shouldAddEmployee() {
-        assertEquals(expected, out.showEmployeeList());
+        assertIterableEquals(expected, out.showEmployeeList());
         assertTrue(out.showEmployeeList().contains(new Employee(1, "Semen",
                 "Semenov", 179369)));
         assertEquals(1, out.showEmployeeList().size());
@@ -76,7 +76,7 @@ public class EmployeeServiceImplTest {
         out.removeEmployee("Semen", "Semenov");
         assertFalse(out.showEmployeeList().contains(new Employee(1, "Semen",
                 "Semenov", 179369)));
-        assertEquals(expected, out.showEmployeeList());
+        assertIterableEquals(expected, out.showEmployeeList());
         assertEquals(0, out.showEmployeeList().size());
     }
 
@@ -112,6 +112,6 @@ public class EmployeeServiceImplTest {
     //возвращается ли список всех сотрудников
     @Test
     public void shouldGetListOfAllEmployees() {
-        assertEquals(expected, out.showEmployeeList());
+        assertIterableEquals(expected, out.showEmployeeList());
     }
 }
