@@ -6,7 +6,7 @@ import skypro.course2.employeeBook.model.Employee;
 import skypro.course2.employeeBook.service.DepartmentService;
 import skypro.course2.employeeBook.service.EmployeeService;
 
-import java.util.Comparator;
+import static java.util.Comparator.*;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -28,7 +28,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         return employeeService.showEmployeeList()
                 .stream()
                 .filter(e -> e.getNumOfDepartment().equals(numOfDepartment))
-                .max(Comparator.comparingInt(Employee::getSalary))
+                .max(comparingInt(Employee::getSalary))
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 
@@ -39,7 +39,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         return employeeService.showEmployeeList()
                 .stream()
                 .filter(e -> e.getNumOfDepartment().equals(numOfDepartment))
-                .min(Comparator.comparingInt(Employee::getSalary))
+                .min(comparingInt(Employee::getSalary))
                 .orElseThrow(() -> new EmployeeNotFoundException("Сотрудник не найден!"));
     }
 
