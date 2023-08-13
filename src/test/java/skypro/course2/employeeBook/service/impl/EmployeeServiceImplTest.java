@@ -74,6 +74,8 @@ public class EmployeeServiceImplTest {
     public void shouldRemoveEmployee() {
         expected.remove(0);
         out.removeEmployee("Semen", "Semenov");
+        assertFalse(out.showEmployeeList().contains(new Employee(1, "Semen",
+                "Semenov", 179369)));
         assertEquals(expected, out.showEmployeeList());
         assertEquals(0, out.showEmployeeList().size());
     }
