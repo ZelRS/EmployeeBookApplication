@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import skypro.course2.employeeBook.exception.DepCountException;
+import skypro.course2.employeeBook.model.Employee;
 import skypro.course2.employeeBook.service.EmployeeService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -66,8 +67,11 @@ public class DepartmentServiceImplTest {
     //если номер оттедла задан некорректно, проверяет количество вызова метода showEmployeeList()
     @Test
     public void shouldGetSumOfSalaryByDepOrThrowIfNumOfDepIncorrect() {
-        int expectedSum = EMPLOYEE1.getSalary() + EMPLOYEE2.getSalary();
-        assertEquals(expectedSum, out.getSumOfSalaryByDep(1));
+        int expected = CONSTANT_LIST_OF_EMPLOYEE.stream()
+                .filter(e -> e.getNumOfDepartment().equals(1))
+                .mapToInt(Employee::getSalary)
+                .sum();
+        assertEquals(expected, out.getSumOfSalaryByDep(1));
         assertThrows(DepCountException.class, () -> out.getEmployeesListByDep(0));
         verify(employeeServiceMock, times(1)).showEmployeeList();
     }
