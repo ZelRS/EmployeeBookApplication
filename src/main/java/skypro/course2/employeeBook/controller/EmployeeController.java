@@ -1,10 +1,8 @@
-package skypro.course2.hw6.controller;
+package skypro.course2.employeeBook.controller;
 
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import skypro.course2.hw6.model.Employee;
-import skypro.course2.hw6.service.EmployeeService;
+import skypro.course2.employeeBook.model.Employee;
+import skypro.course2.employeeBook.service.EmployeeService;
 
 import java.util.Collection;
 

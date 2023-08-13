@@ -1,4 +1,4 @@
-package skypro.course2.hw6.exception;
+package skypro.course2.employeeBook.exception;
 
 public class EmployeeAlreadyAddedException extends RuntimeException {
     public EmployeeAlreadyAddedException(String message) {
