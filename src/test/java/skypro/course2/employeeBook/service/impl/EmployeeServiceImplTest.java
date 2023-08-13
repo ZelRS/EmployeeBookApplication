@@ -8,8 +8,7 @@ import skypro.course2.employeeBook.model.Employee;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class EmployeeServiceImplTest {
     private final EmployeeServiceImpl out = new EmployeeServiceImpl();
@@ -20,6 +19,15 @@ public class EmployeeServiceImplTest {
     @BeforeEach
     public void setUp() {
         out.addEmployee(1, "Semen", "Semenov", 179369);
+    }
+
+    // проверяет добавился ли сотрудник
+    @Test
+    public void shouldAddEmployee() {
+        assertEquals(expected, out.showEmployeeList());
+        assertTrue(out.showEmployeeList().contains(new Employee(1, "Semen",
+                "Semenov", 179369)));
+        assertEquals(1, out.showEmployeeList().size());
     }
 
     //выбрасывается ли исключение, если добавляемый сотрудник уже есть в списке
@@ -67,6 +75,7 @@ public class EmployeeServiceImplTest {
         expected.remove(0);
         out.removeEmployee("Semen", "Semenov");
         assertEquals(expected, out.showEmployeeList());
+        assertEquals(0, out.showEmployeeList().size());
     }
 
     //выбрасывается ли исключение, если удаляемый сотрудник не найден в списке
